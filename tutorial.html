@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <span class="logo">WeatherApp</span> <!-- Text logo -->
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="weather-types.html">Weather Types</a></li>
+            <li><a href="weather-features.html">Weather Features</a></li>
+            <li><a href="tutorial.html">Tutorial</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Weather App Tutorial</h1>
+        <p>Welcome to the tutorial for the Weather App! In this guide, you will learn about the features implemented in the app and how to replicate them in your own projects.</p>
+        
+        <h2>Features Implemented</h2>
+        <ul>
+            <li><strong>Current Weather Display:</strong> The app fetches and displays the current weather for a specified city using the OpenWeatherMap API.</li>
+            <li><strong>5-Day/3-Hour Forecast:</strong> This feature retrieves weather forecast data for the next 5 days at 3-hour intervals, displaying it dynamically.</li>
+            <li><strong>OpenWeatherMap Widget:</strong> An embedded weather widget that provides additional weather information.</li>
+            <li><strong>Date Navigation:</strong> Users can navigate through forecast data by changing the displayed date with left and right arrows.</li>
+        </ul>
+
+        <h2>Implementation Details</h2>
+        <h3>1. Current Weather Display</h3>
+        <p>To implement the current weather feature:</p>
+        <pre>
+            <code>
+            const url = `http://api.openweathermap.org/data/2.5/weather?q=${cityId}&appid=${apiKey}&units=metric`;
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    // Update the UI with current weather data
+                });
+            </code>
+        </pre>
+
+        <h3>2. 5-Day/3-Hour Forecast</h3>
+        <p>The forecast is retrieved using the following API call:</p>
+        <pre>
+            <code>
+            const url = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    // Display the 5-day forecast data
+                });
+            </code>
+        </pre>
+
+        <h3>3. OpenWeatherMap Widget</h3>
+        <p>The widget is embedded in the page as follows:</p>
+        <pre>
+            <code>
+            &lt;div id="openweathermap-widget-11"&gt;&lt;/div&gt;
+            &lt;script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'&gt;&lt;/script&gt;
+            &lt;script&gt;
+                window.myWidgetParam = [];
+                window.myWidgetParam.push({
+                    id: 11,
+                    cityid: '2147714', // Sydney city ID
+                    appid: 'YOUR_API_KEY',
+                    units: 'metric',
+                    containerid: 'openweathermap-widget-11',
+                });
+            &lt;/script&gt;
+            </code>
+        </pre>
+
+        <h3>4. Date Navigation</h3>
+        <p>Date navigation allows users to select a date to view the corresponding forecast:</p>
+        <pre>
+            <code>
+            const currentDateElem = document.getElementById('currentDate');
+            document.getElementById('prevDate').addEventListener('click', () => {
+                currentDate.setDate(currentDate.getDate() - 1);
+                currentDateElem.innerText = currentDate.toDateString();
+                updateForecast();
+            });
+            </code>
+        </pre>
+
+        <h2>Conclusion</h2>
+        <p>This tutorial provides a brief overview of the key features implemented in the Weather App. By following the provided code snippets and explanations, developers can easily replicate these features in their own projects.</p>
+        
+        <div>
+            <a href="index.html" class="back-button">Back to Weather App</a>
+        </div>
+    </div>
+</body>
+</html>

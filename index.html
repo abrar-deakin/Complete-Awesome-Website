@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sydney Weather</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <span class="logo">WeatherApp</span> <!-- Text logo -->
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="weather-types.html">Weather Types</a></li>
+            <li><a href="weather-features.html">Weather Features</a></li>
+            <li><a href="tutorial.html">Tutorial</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="current-weather">
+            <h1 id="currentTemp">Now</h1>
+            <h2 id="currentFeels">Feels like</h2>
+            <h3 id="cityName">Sydney</h3>
+            <div id="weatherDetails"></div>
+            <div class="dropdown">
+                <button class="dropbtn">More Observations</button>
+            </div>
+        </div>
+
+        <!-- OpenWeatherMap Widget -->
+        <div id="openweathermap-widget-11" style="display:none;"></div>
+        <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
+        <script>
+            window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
+            window.myWidgetParam.push({
+                id: 11,
+                cityid: '2147714', // Sydney city ID
+                appid: 'b16ff16c254c613e3e4c9eeaee97d97c', // Your API key
+                units: 'metric',
+                containerid: 'openweathermap-widget-11',
+            });
+            (function() {
+                var script = document.createElement('script');
+                script.async = true;
+                script.charset = "utf-8";
+                script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(script, s);
+            })();
+        </script>
+        <!-- End of OpenWeatherMap Widget -->
+
+        <!-- Date Navigation -->
+        <div class="date-navigation">
+            <button id="prevDate">◀</button>
+            <span id="currentDate"></span>
+            <button id="nextDate">▶</button>
+        </div>
+
+        <div class="forecast">
+            <h2>5-Hour Forecast</h2>
+            <div id="weatherResult"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+    <script>
+        // Add event listener for the More Observations button
+        document.querySelector('.dropbtn').addEventListener('click', function() {
+            const widget = document.getElementById('openweathermap-widget-11');
+            widget.style.display = widget.style.display === 'none' ? 'block' : 'none'; // Toggle the widget
+        });
+
+        // Date navigation
+        const currentDateElem = document.getElementById('currentDate');
+        let currentDate = new Date(); // Initialize to today's date
+        currentDateElem.innerText = currentDate.toDateString(); // Display current date
+
+        // Event listeners for date navigation buttons
+        document.getElementById('prevDate').addEventListener('click', () => {
+            currentDate.setDate(currentDate.getDate() - 1);
+            currentDateElem.innerText = currentDate.toDateString();
+            updateForecast();
+        });
+
+        document.getElementById('nextDate').addEventListener('click', () => {
+            currentDate.setDate(currentDate.getDate() + 1);
+            currentDateElem.innerText = currentDate.toDateString();
+            updateForecast();
+        });
+    </script>
+</body>
+</html>

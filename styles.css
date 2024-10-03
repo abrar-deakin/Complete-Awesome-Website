@@ -1,0 +1,232 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.current-weather {
+    background-color: #007bff; /* Blue background */
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+}
+
+.forecast {
+    margin-top: 20px;
+    background-color: white; /* White background for forecast */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+#weatherResult {
+    display: flex;
+    flex-direction: column;
+}
+
+.forecast {
+    border-bottom: 1px solid #ccc; /* Border between forecasts */
+    padding: 10px;
+}
+
+.forecast:last-child {
+    border-bottom: none; /* Remove border for the last forecast */
+}
+/* Existing styles... */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #007bff; /* Button color */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white; /* Dropdown background */
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* Hover effect */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Show dropdown on hover */
+}
+
+/* Existing styles... */
+
+.dropbtn {
+    background-color: #28a745; /* Green background for the button */
+    color: white;
+    padding: 10px 15px; /* Increased padding for better visibility */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px; /* Larger font size */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.dropbtn:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white; /* Dropdown background */
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* Hover effect */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Show dropdown on hover */
+}
+
+/* Existing styles... */
+
+.date-navigation {
+    display: flex;
+    justify-content: flex-end; /* Aligns to the right */
+    margin-top: 10px;
+}
+
+.date-navigation button {
+    background-color: #007bff; /* Blue background */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px; /* Margin between buttons */
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.date-navigation button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+#currentDate {
+    font-size: 16px; /* Increase font size for better visibility */
+    align-self: center; /* Center align date */
+}
+
+/* Existing styles... */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff; /* Background color for the navbar */
+    padding: 10px 20px;
+}
+
+.logo {
+    height: 50px; /* Adjust height as needed */
+}
+
+.navbar ul {
+    list-style-type: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li {
+    margin: 0 15px; /* Space between menu items */
+}
+
+.navbar a {
+    color: white; /* Menu item color */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Font size */
+}
+
+.navbar a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Existing styles... */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff; /* Background color for the navbar */
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 28px; /* Increase font size */
+    font-weight: bold; /* Make it bold */
+    color: white; /* Text color */
+    font-family: 'Arial', sans-serif; /* You can use any unique font */
+    letter-spacing: 2px; /* Add letter spacing for better appearance */
+}
+
+.navbar ul {
+    list-style-type: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li {
+    margin: 0 15px; /* Space between menu items */
+}
+
+.navbar a {
+    color: white; /* Menu item color */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Font size */
+}
+
+.navbar a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+
